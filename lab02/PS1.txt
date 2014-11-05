@@ -1,0 +1,22 @@
+clear all
+data = xlsread('cgss05.csv');
+
+income = data(:,1);
+edu = data(:,6);
+expr = data(:,7);
+
+n  = length(income);
+
+y = log(income);
+X = [ones(n,1) edu expr];
+
+beta = inv(X'*X)*X'*y;
+e = y - X*beta;
+ssr = e'*e;
+s2 = ssr/(n-2);
+Sigma = s2*inv(X'*X);
+se = sqrt(diag(Sigma));
+sst = (y-mean(y)'*(y-mean(y));
+R2 = 1 - ssr/sst;
+disp(' Estimate   S.D.');
+disp([beta se]);

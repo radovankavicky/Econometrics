@@ -1,0 +1,6 @@
+disp(beta_hat)
+??? Undefined function or variable 'beta_hat'.
+
+disp('Hello world')
+Hello world
+diary off

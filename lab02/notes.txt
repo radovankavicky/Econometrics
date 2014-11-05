@@ -1,0 +1,29 @@
+plot = (x, y, '.')
+xlabel('edu')
+ylabel('income')
+title('SJTU')
+legend('regression')
+
+box off - 去边框
+legend boxoff - 去标记的边框
+
+Edit > Copy figure
+
+whos – 查看有哪些变量
+
+eye(4) - 单位矩阵
+
+X = [ones(4,1);x] - 把两个向量上下衔接
+X = [ones(4,1) x] - 把两个向量左右衔接
+beta_hat = inv(X' * X) * X' * y; // inv是求逆，'为转置
+beta_hat = (X' * X) \ X' * y; //因为inv不好用所以可以用反斜杠替代
+
+X .* X - 点乘，用于两个矩阵维数相同，每个元素各自相乘
+
+diary('result.txt') - 屏幕上所有东西都会存到这个文件中
+disp(beta_hat) //disp = display
+disp('Hello world')
+diary off
+
+lookfor exponential // ctrl+C to stop
+help nargout
